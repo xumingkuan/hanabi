@@ -256,8 +256,9 @@ public:
 		// Play the "best" move except for giving a hint to the previous player
 		// if the previous player's last card (if unknown) is discardable.
 		// Otherwise, play something that is not the "best" from the previous player's view,
-		// or give a hint to the previous player.
+		// (TODO: or give a hint to the previous player).
 		// "Best" is defined as play > discard > give hint.
+		// If no useful hint is available, discard the first card that is not undiscardable instead.
 		auto try_to_discard_the_last_discardable_card = [&] () {
 			int discard_position = -1;
 			for (int i = (int)discardable.size() - 1; i >= 0; i--) {
